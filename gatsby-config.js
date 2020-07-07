@@ -1,34 +1,75 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: "Salomón Piña",
+    author: "Salomón Piña",
+    description:
+      "Computer science engineer and full-stack software developer. This is the place where I tell my expirences learning new stuff.",
+    pathPrefix: "/",
+    siteUrl: "https://salomonpina.dev",
+    // logo: "",
   },
   plugins: [
+    // Metadata.
+
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Salomón Piña`,
+        short_name: `SP`,
+        description:
+          "Computer science engineer and full-stack software developer. This is the place where I tell my expirences learning new stuff.",
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `white`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `content/icons/png/twitter-icon_512.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+
+    // Images, content and static stuff.
+
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/content/`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/static/`,
+      },
+    },
+
+    // Markdown engine.
+
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: true,
+              prompt: {
+                user: "root",
+                host: "localhost",
+                global: true,
+              },
+            },
+          },
+          "gatsby-remark-prismjs",
+        ],
+      },
+    },
   ],
-}
+};

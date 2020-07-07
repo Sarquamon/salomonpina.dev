@@ -1,0 +1,11 @@
+/*! Salomón's Piña snowy theme website style */
+
+:root {
+  --font-color: #495057;
+  --heading-color: #343a40;
+  --dark-font-color: #212529;
+  --light-font-color: #868e96;
+  --light-background: #f1f3f5;
+  --border: #d6d9de;
+  --link-color: #5183f5;
+}
