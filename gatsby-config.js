@@ -6,7 +6,7 @@ module.exports = {
       "Computer science engineer and full-stack software developer. This is the place where I tell my expirences learning new stuff.",
     pathPrefix: "/",
     siteUrl: "https://salomonpina.dev",
-    // logo: "",
+    logo: "https://salomonpina.dev/appLogo.png",
   },
   plugins: [
     // Metadata.
@@ -23,7 +23,7 @@ module.exports = {
         background_color: `white`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/icons/png/twitter-icon_512.png`, // This path is relative to the root of the site.
+        icon: `static/appLogo.png`, // img has to be at least 512x512px
       },
     },
 

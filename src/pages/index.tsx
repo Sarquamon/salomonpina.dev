@@ -1,8 +1,14 @@
 import React from "react";
-import { PageProps } from "gatsby";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
+import { Helmet } from "react-helmet";
+import config from "../utils/config";
 
-export default function index(props: PageProps) {
-  return <Layout />;
+export default function index() {
+  return (
+    <Layout>
+      <Helmet title={`${config.siteTitle}`} />
+      <main>hola</main>
+    </Layout>
+  );
 }

@@ -1,9 +1,20 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
-export default function Layout() {
+import Navbar from "./Navbar";
+
+interface props {
+  children?: any;
+}
+
+export default function Layout({ children }: props) {
   return (
-    <div>
-      <h1>Hola</h1>
-    </div>
+    <>
+      <Helmet>
+        <link rel="shortcut icon" type="image/png" href="/appLogo.png" />
+      </Helmet>
+      <Navbar />
+      <main>{children}</main>
+    </>
   );
 }
