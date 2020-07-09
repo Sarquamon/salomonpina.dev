@@ -51,24 +51,7 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: true,
-              prompt: {
-                user: "root",
-                host: "localhost",
-                global: true,
-              },
-            },
-          },
-          "gatsby-remark-prismjs",
-        ],
+        plugins: ["gatsby-remark-prismjs", "gatsby-remark-images"],
       },
     },
   ],

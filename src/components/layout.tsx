@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 
 import Navbar from "./Navbar";
 
+import "../snowy.css";
+
 interface props {
   children?: any;
 }
