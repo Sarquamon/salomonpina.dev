@@ -134,7 +134,7 @@ pre[class*="language-"] {
   margin-bottom: 2rem;
   margin-right: 0rem;
   margin-left: 0rem;
-  border: var(--terminal-menu-primary-color) 2px solid;
+  border: var(--terminal-menu-primary-color) 1px solid;
   border-radius: 0.2rem;
   background-color: var(--terminal-screen-primary-color, rgba(13, 27, 42, 1));
   color: var(--terminal-code-primary-color, rgba(202, 197, 197, 1));
