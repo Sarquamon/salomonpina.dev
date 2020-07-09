@@ -1,11 +1,319 @@
 /*! Salomón's Piña snowy theme website style */
 
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold-Italic.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold-Italic.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Bold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Bold.woff")
+      format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold-Italic.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold-Italic.woff")
+      format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-ExtraBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-ExtraBold.woff")
+      format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Italic.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Italic.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium-Italic.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium-Italic.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Medium.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Medium.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-color: #495057;
-  --heading-color: #343a40;
-  --dark-font-color: #212529;
-  --light-font-color: #868e96;
-  --light-background: #f1f3f5;
-  --border: #d6d9de;
-  --link-color: #5183f5;
+  --terminal-menu-primary-color: rgba(224, 225, 221, 1);
+  --terminal-buttons-primary-color: rgba(179, 185, 197, 1);
+  --terminal-buttons-secondary-color: rgba(119, 141, 169, 1);
+  --terminal-screen-primary-color: rgba(13, 27, 42, 1);
+  --terminal-screen-secondary-color: rgba(21, 21, 21, 1);
+  --code-font-primary-color: rgba(202, 197, 197, 1);
+  --code-font-primary-select-color: rgba(202, 197, 197, 0.445);
+  --code-font-primary-family: JetBrains Mono, monospace;
+
+  --syntax-high-string: rgba(146, 209, 146, 1);
+  --syntax-high-variable: rgba(242, 119, 122, 1);
+  --syntax-high-property: rgba(171, 178, 191, 1);
+  --syntax-high-number: rgba(252, 163, 105, 1);
+  --syntax-high-operator: rgba(172, 141, 88, 1);
+  --syntax-high-punctuation: rgba(213, 216, 223, 1);
+  --syntax-high-comment: rgba(132, 137, 145, 1);
+  --syntax-high-function: rgba(98, 207, 207, 1);
+  --syntax-high-keyword: rgba(255, 238, 173, 1);
+  --syntax-high-attribute: rgba(255, 212, 121, 1);
+  --syntax-high-class: rgba(225, 166, 242, 1);
+  --syntax-high-tag: rgba(106, 176, 243, 1);
+  --syntax-high-error: rgba(242, 119, 122, 1);
+}
+
+/* Box containing code text */
+code[class*="language-"] {
+  cursor: text;
+}
+
+/* Box containing inline code text */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1rem 0.3rem;
+  background-color: var(--terminal-screen-primary-color);
+  border-radius: 0.2rem;
+}
+
+/* Box containing code block */
+pre[class*="language-"] {
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.55);
+  padding: 1.5rem 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-right: 0rem;
+  margin-left: 0rem;
+  border: var(--terminal-menu-primary-color) 2px solid;
+  border-radius: 0.2rem;
+  background-color: var(--terminal-screen-primary-color, rgba(13, 27, 42, 1));
+  color: var(--terminal-code-primary-color, rgba(202, 197, 197, 1));
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  /*Font family and style*/
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: var(--terminal-code-primary-color, rgba(202, 197, 197, 1));
+  font-family: var(--code-font-primary-family);
+
+  /*Font properties*/
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: normal;
+  word-wrap: normal;
+
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  color: inherit;
+  background: var(--code-font-primary-select-color) !important;
+}
+
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  color: inherit;
+  background: var(--code-font-primary-select-color) !important;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 760px) {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 1rem;
+  }
+  pre[class*="language-"] {
+    padding: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Syntax Highlighting */
+/* Gatsby */
+.gatsby-highlight-code-line {
+  background-color: #191919;
+  display: block;
+  margin-right: -1rem;
+  margin-left: -1rem;
+  padding-right: 1rem;
+  padding-left: 0.75rem;
+  border-left: 0.25rem solid #748ffc;
+}
+
+/* PrismJS */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.important {
+  color: var(--syntax-high-comment);
+}
+
+.token.punctuation {
+  color: var(--syntax-high-punctuation);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property {
+  color: var(--syntax-high-property);
+}
+
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--syntax-high-tag);
+}
+
+.token.number {
+  color: var(--syntax-high-number);
+}
+
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+  color: var(--code-font-color);
+}
+
+.token.attr-name,
+.token.selector {
+  color: var(--syntax-high-attribute);
+}
+
+.token.attr-value,
+.token.string {
+  color: var(--syntax-high-string);
+}
+
+.token.operator {
+  color: var(--syntax-high-operator);
+}
+
+.token.atrule,
+.token.keyword {
+  color: var(--syntax-high-keyword);
+}
+
+.token.function {
+  color: var(--syntax-high-function);
+}
+
+.language-css,
+.token.boolean,
+.token.class-name {
+  color: var(--syntax-high-class) !important;
+}
+
+.token.regex {
+  color: var(--syntax-high-keyword);
+}
+
+.token.variable {
+  color: var(--syntax-high-variable);
+}
+
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/*Specific properties for languages / terminals*/
+
+pre.language-terminal::before {
+  content: "\2022 \2022 \2022";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--terminal-menu-primary-color);
+  color: var(--terminal-buttons-primary-color);
+  width: 100%;
+  font-size: 2.5rem;
+  margin: 0 auto;
+  line-height: 0;
+  padding: 18px 0 16px;
+  text-indent: 10px;
+  letter-spacing: -18px;
+}
+
+pre.language-terminal {
+  position: relative;
+  color: var(--terminal-code-primary-color, rgba(202, 197, 197, 1));
+  box-shadow: 0 8px 16px rgba(100, 120, 130, 0.35);
+  padding-top: 3rem;
 }
