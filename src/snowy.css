@@ -113,19 +113,19 @@
   --syntax-high-error: rgba(242, 119, 122, 1);
 }
 
-/* Box containing code text */
+/* * Box containing code text */
 code[class*="language-"] {
   cursor: text;
 }
 
-/* Box containing inline code text */
+/* * Box containing inline code text */
 :not(pre) > code[class*="language-"] {
   padding: 0.1rem 0.3rem;
   background-color: var(--terminal-screen-primary-color);
   border-radius: 0.2rem;
 }
 
-/* Box containing code block */
+/* * Box containing code block */
 pre[class*="language-"] {
   overflow: auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.55);
@@ -142,12 +142,12 @@ pre[class*="language-"] {
 
 code[class*="language-"],
 pre[class*="language-"] {
-  /*Font family and style*/
+  /* * Font family and style*/
   -webkit-font-smoothing: subpixel-antialiased;
   color: var(--terminal-code-primary-color, rgba(202, 197, 197, 1));
   font-family: var(--code-font-primary-family);
 
-  /*Font properties*/
+  /* * Font properties*/
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.7;
@@ -180,7 +180,7 @@ code[class*="language-"] ::-moz-selection {
   background: var(--code-font-primary-select-color) !important;
 }
 
-/* Media queries */
+/* * Media queries */
 
 @media screen and (min-width: 760px) {
   code[class*="language-"],
@@ -194,8 +194,8 @@ code[class*="language-"] ::-moz-selection {
   }
 }
 
-/* Syntax Highlighting */
-/* Gatsby */
+/* * Syntax Highlighting */
+/* * Gatsby */
 .gatsby-highlight-code-line {
   background-color: #191919;
   display: block;
@@ -206,7 +206,7 @@ code[class*="language-"] ::-moz-selection {
   border-left: 0.25rem solid #748ffc;
 }
 
-/* PrismJS */
+/* * PrismJS */
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -293,7 +293,7 @@ code[class*="language-"] ::-moz-selection {
   cursor: help;
 }
 
-/*Specific properties for languages / terminals*/
+/* * Specific properties for languages / terminals*/
 
 pre.language-terminal::before {
   content: "\2022 \2022 \2022";
