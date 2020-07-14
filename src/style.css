@@ -48,7 +48,7 @@ html {
 
 body {
   margin: 0rem;
-  padding: 0rem;
+  padding: 0 1rem 0;
   font-size: 1rem;
 }
 
@@ -61,14 +61,14 @@ body {
 
 main {
   margin-top: 2rem;
-  padding: 0;
+  padding: 0 1rem 0;
   font-size: 1rem;
 }
 
 @media screen and (min-width: 760px) {
   main {
     margin-top: 0;
-    padding: 0;
+    padding: 0rem;
   }
 }
 
@@ -277,7 +277,7 @@ h5 {
   box-shadow: 0 3px 13px rgba(100, 110, 140, 0.1),
     0 2px 4px rgba(100, 110, 140, 0.15);
   z-index: 2;
-  background-color: var(--navbar-primary-bg-color);
+  background: var(--navbar-primary-bg-color);
 }
 
 .navbar .flex {
