@@ -12,6 +12,8 @@
   --color-1: #343a40;
   --color-2: #fff;
 
+  --dark-font-color: #212529;
+
   --primary-link-color: #5183f5;
 
   /* * font colors */
@@ -48,27 +50,27 @@ html {
 
 body {
   margin: 0rem;
-  padding: 0 1rem 0;
+  padding: 0;
   font-size: 1rem;
 }
 
 @media screen and (min-width: 760px) {
   body {
     margin: 0rem;
-    padding: 0rem;
+    padding: 0;
   }
 }
 
 main {
   margin-top: 2rem;
-  padding: 0 1rem 0;
+  padding: 0 0 0 2rem;
   font-size: 1rem;
 }
 
 @media screen and (min-width: 760px) {
   main {
     margin-top: 0;
-    padding: 0rem;
+    padding: 0 0rem 0;
   }
 }
 
@@ -91,7 +93,7 @@ section > h2 {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -101,6 +103,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 /* * Lists and blockquotes  */
 p,
 ol,
@@ -294,8 +297,7 @@ h5 {
   font-weight: 400;
 }
 
-.navbar a:hover,
-.footer a:hover {
+.navbar a:hover {
   background: var(--navbar-primary-hover-color);
   color: var(--navbar-primary-font-color);
 }
@@ -307,7 +309,12 @@ h5 {
   margin-right: -1rem;
 }
 
+.emoji {
+  font-size: 1.5rem;
+}
+
 .navbar a.brand .name {
+  display: none;
   font-weight: 600;
   color: var(--navbar-primary-font-color);
   white-space: nowrap;
@@ -316,9 +323,18 @@ h5 {
 @media screen and (min-width: 760px) {
   .navbar {
     margin: 0rem 0rem 3rem;
-    padding: 1.5rem 0rem;
+    padding: 1.5rem 1rem;
     position: sticky;
     box-shadow: none;
+  }
+
+  .emoji {
+    font-size: 1.3rem;
+    margin: 0rem 0.4rem 0rem 0.1rem;
+  }
+
+  .navbar a.brand .name {
+    display: inline;
   }
 
   .navbar .flex {
@@ -341,8 +357,68 @@ h5 {
   }
 }
 
-.emoji {
-  margin: 0rem 0.4rem 0rem 0.1rem;
+/* * Footer */
+
+.footer {
+  margin: 3rem auto 0;
+}
+
+.footer > .flex {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-links-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer a:hover {
+  --footer-primary-hover-color: #e0e0e0;
+  color: var(--navbar-primary-font-color);
+  background: var(--footer-primary-hover-color);
+}
+
+.flex nav {
+  padding: 1rem 0;
+}
+
+.footer img {
+  width: 3rem;
+  height: auto;
+}
+
+.footer a.img {
+  align-items: center;
+  padding: 0;
+  margin: 0 0.75rem;
+  background: none;
+}
+
+@media screen and (min-width: 760px) {
+  .footer {
+    margin: 3rem auto 0;
+  }
+
+  .footer > .flex {
+    align-items: center;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .footer a.img {
+    padding: 0 0.5rem;
+    margin: 0 1rem;
+  }
+
+  .footer img {
+    width: 5vw;
+    height: auto;
+    max-width: 1000px;
+  }
 }
 
 /* * Utils */

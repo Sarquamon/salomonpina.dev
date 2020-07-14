@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 import "../snowy.css";
 import "../style.css";
@@ -12,7 +13,7 @@ interface props {
 
 export default function Layout({ children }: props) {
   return (
-    <div style={{ border: "5px black solid" }}>
+    <div>
       <Helmet>
         <link rel="shortcut icon" type="image/png" href="/appLogo.png" />
       </Helmet>
@@ -20,6 +21,7 @@ export default function Layout({ children }: props) {
       <main className="container" style={{ border: "4px yellow solid" }}>
         {children}
       </main>
+      <Footer />
     </div>
   );
 }

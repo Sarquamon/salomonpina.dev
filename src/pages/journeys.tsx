@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 export default function guides() {
   return (
     <Layout>
-      <div>guides</div>
+      <h1>Journeys</h1>
     </Layout>
   );
 }

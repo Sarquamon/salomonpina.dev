@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 export default function Navbar() {
   return (
-    <nav className="navbar" style={{ border: "4px solid red" }}>
+    <nav className="navbar">
       <div className="container flex">
         <div>
           <Link to="/" className="brand">
@@ -12,9 +12,9 @@ export default function Navbar() {
           </Link>
         </div>
         <div>
-          <Link to="/guides">Guides</Link>
+          <Link to="/about">About</Link>
+          <Link to="/journeys">Journeys</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/trips">Trips</Link>
         </div>
       </div>
     </nav>

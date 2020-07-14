@@ -8,7 +8,7 @@ export default function index() {
   return (
     <Layout>
       <Helmet title={`${config.siteTitle}`} />
-      <main>hola</main>
+      <h1>Index</h1>
     </Layout>
   );
 }
