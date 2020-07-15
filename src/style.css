@@ -105,6 +105,7 @@ img {
 }
 
 /* * Lists and blockquotes  */
+
 p,
 ol,
 ul,
@@ -175,6 +176,7 @@ blockquote a:hover {
 }
 
 /* * Links */
+
 a {
   color: var(--primary-link-color);
   text-decoration: none;
@@ -199,6 +201,7 @@ a code:hover {
 }
 
 /* * Headings */
+
 h1,
 h2,
 h3,
@@ -216,6 +219,11 @@ h6 {
 h1 {
   font-size: 2.5rem;
   line-height: 1.1;
+}
+
+h1 .NotFoundTitle {
+  display: block;
+  justify-content: space-around;
 }
 
 h2 {
@@ -252,6 +260,13 @@ h5 {
   h1 {
     font-size: 3rem;
   }
+
+  h1.notFoundTitle,
+  p.notFoundDesc {
+    display: flex;
+    justify-content: space-around;
+  }
+
   h2 {
     font-size: 2rem;
   }
