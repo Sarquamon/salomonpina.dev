@@ -18,9 +18,7 @@ export default function Layout({ children }: props) {
         <link rel="shortcut icon" type="image/png" href="/appLogo.png" />
       </Helmet>
       <Navbar />
-      <main className="container" style={{ border: "4px yellow solid" }}>
-        {children}
-      </main>
+      <main className="container">{children}</main>
       <Footer />
     </div>
   );
