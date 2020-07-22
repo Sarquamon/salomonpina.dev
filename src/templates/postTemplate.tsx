@@ -17,7 +17,7 @@ export default function postTemplate({ data }: any) {
       <header className="article-header medium">
         <h1>{post.frontmatter.title}</h1>
       </header>
-      <section className="grid post">
+      <section>
         <article>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
