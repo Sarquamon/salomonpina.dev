@@ -1,16 +1,16 @@
 const path = require("path");
 
-// function slugify(str) {
-//   return (
-//     str &&
-//     str
-//       .match(
-//         /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
-//       )
-//       .map(x => x.toLowerCase())
-//       .join("-")
-//   );
-// }
+function slugify(str) {
+  return (
+    str &&
+    str
+      .match(
+        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+      )
+      .map(x => x.toLowerCase())
+      .join("-")
+  );
+}
 
 //Creates pages for every kind of posts.
 const createPages = async ({ graphql, actions }) => {
@@ -114,7 +114,7 @@ const createNode = ({ node, actions, getNode }) => {
     if (Object.prototype.hasOwnProperty.call(node.frontmatter, "slug")) {
       slug = `/${node.frontmatter.slug}/`;
     } else {
-      slug = `/${parsedFilePath.dir}/`;
+      slug = `/${parsedFilePath.dir}/${slugify(node.frontmatter.title)}`;
     }
 
     createNodeField({
