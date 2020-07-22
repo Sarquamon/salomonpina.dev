@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Link, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
-import { Link } from "gatsby";
+
+import { optimizedPosts } from "../utils/handlers";
 
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import PostList from "../components/PostList";
 import config from "../utils/config";
 
-export default function index() {
+export default function index({ data }: any) {
+  const optimizedLatest = useMemo(
+    () => optimizedPosts<{}[]>(data.latest.edges),
+    [data.latest.edges]
+  );
+
+  // const optimizedPopular = useMemo(
+  //   () => optimizedPosts(data.popular.edges),
+  //   [data.popular.edges]
+  // );
+
+  // const optimizedEditor = useMemo(
+  //   () => optimizedPosts(data.editorPicks.edges),
+  //   [data.editorPicks.edges]
+  // );
+
   return (
     <Layout>
       <Helmet title={config.siteTitle} />
@@ -54,14 +71,97 @@ export default function index() {
         </p>
       </Section>
       <Section title="Latests">
-        <PostList data="hola" tags="hola" />
+        <PostList posts={optimizedLatest} />
       </Section>
       <Section title="Editor Picks">
-        <PostList data="hola" tags="hola" />
+        {/* <PostList data={optimizedEditor} /> */}
       </Section>
       <Section title="Popular">
-        <PostList data="hola" tags="hola" />
+        {/* <PostList data={optimizedPopular} /> */}
       </Section>
     </Layout>
   );
 }
+
+export const indexPageQuery = graphql`
+  query IndexQuery {
+    latest: allMarkdownRemark(
+      limit: 5
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { template: { in: ["post", "journey"] } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    popular: allMarkdownRemark(
+      limit: 20
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { categories: { eq: "Popular" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    editorPicks: allMarkdownRemark(
+      limit: 3
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { categories: { eq: "editorPicks" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            tags
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
