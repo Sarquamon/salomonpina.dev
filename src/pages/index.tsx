@@ -100,6 +100,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            categories
             image {
               childImageSharp {
                 fluid {
@@ -126,6 +127,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            categories
             image {
               childImageSharp {
                 fluid {
@@ -152,6 +154,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            categories
             image {
               childImageSharp {
                 fluid {
