@@ -1,14 +1,19 @@
 export const optimizedPosts = <T>(posts: T[]) => {
-  return posts.map(post => ({
-    id: post.node.id,
-    date: post.node.frontmatter.date,
-    slug: post.node.fields.slug,
-    tags: post.node.frontmatter.tags,
-    title: post.node.frontmatter.title,
-    ...(post.node.frontmatter.image && {
-      image: post.node.frontmatter.image.childImageSharp.fluid.src,
-    }),
-  }));
+  if (posts.length > 0) {
+    return posts.map(post => ({
+      id: post.node.id,
+      date: post.node.frontmatter.date,
+      slug: post.node.fields.slug,
+      tags: post.node.frontmatter.tags,
+      title: post.node.frontmatter.title,
+      category: post.node.frontmatter.categories,
+      ...(post.node.frontmatter.image && {
+        image: post.node.frontmatter.image.childImageSharp.fluid.src,
+      }),
+    }));
+  } else {
+    return null;
+  }
 };
 
 export const slugify = (str: string) => {
