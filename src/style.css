@@ -182,9 +182,28 @@ footer .flex nav a {
   /* grid-template-columns: 200px 4fr; 
 } */
 
+/* ! Add hover color as background color to mobile and remove it for desktop */
 .grid.postListGrid .postList-container {
   display: block;
   margin: 0 0 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background: var(--dark-theme-navbar-hover-color);
+}
+
+.grid.postListGrid .postList-container:hover {
+  background: var(--dark-theme-navbar-hover-color);
+}
+
+.grid.postListGrid .postListImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid.postListGrid .postListImage img {
+  width: auto;
+  height: 3rem;
 }
 
 .postList-container .postListData {
@@ -200,6 +219,57 @@ footer .flex nav a {
   display: block;
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
+}
+
+.postList-container .postTags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.postList-container .postTags a {
+  margin-right: 0.5rem;
+  border-radius: 0.2rem;
+  padding: 0.25rem;
+}
+
+/* * Tags */
+
+.tag {
+  color: var(--dark-theme-font-color);
+  background: rgba(33, 33, 33, 1);
+}
+
+.tag:hover {
+  color: var(--dark-theme-font-color);
+  background: rgba(51, 51, 51, 1);
+}
+
+.tag.tag-Docker {
+  background: rgba(81, 131, 245, 0.8);
+}
+
+.tag.tag-Docker:hover {
+  background: rgba(81, 131, 245, 1);
+}
+
+.tag.tag-Javascript {
+  color: var(--dark-theme-bg);
+  background: rgba(255, 224, 102, 0.8);
+}
+
+.tag.tag-Javascript:hover {
+  color: var(--dark-theme-bg);
+  background: rgba(255, 224, 102, 1);
+}
+
+.postList-container .postTags .postListCat {
+  background: rgba(33, 33, 33, 1);
+  color: var(--dark-theme-font-color);
+}
+
+.postList-container .postTags .postListCat:hover {
+  background: rgba(51, 51, 51, 1);
 }
 
 /* * Footer */
