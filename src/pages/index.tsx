@@ -15,15 +15,14 @@ export default function index({ data }: any) {
     [data.latest.edges]
   );
 
-  // const optimizedPopular = useMemo(
-  //   () => optimizedPosts(data.popular.edges),
-  //   [data.popular.edges]
-  // );
+  const optimizedPopular = useMemo(() => optimizedPosts(data.popular.edges), [
+    data.popular.edges,
+  ]);
 
-  // const optimizedEditor = useMemo(
-  //   () => optimizedPosts(data.editorPicks.edges),
-  //   [data.editorPicks.edges]
-  // );
+  const optimizedEditor = useMemo(
+    () => optimizedPosts(data.editorPicks.edges),
+    [data.editorPicks.edges]
+  );
 
   return (
     <Layout>
@@ -74,10 +73,10 @@ export default function index({ data }: any) {
         <PostList posts={optimizedLatest} />
       </Section>
       <Section title="Editor Picks">
-        {/* <PostList data={optimizedEditor} /> */}
+        <PostList posts={optimizedEditor} />
       </Section>
       <Section title="Popular">
-        {/* <PostList data={optimizedPopular} /> */}
+        <PostList posts={optimizedPopular} />
       </Section>
     </Layout>
   );
@@ -115,7 +114,9 @@ export const indexPageQuery = graphql`
     popular: allMarkdownRemark(
       limit: 20
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { eq: "Popular" } } }
+      filter: {
+        frontmatter: { condition: { in: ["Popular", "Editor picks"] } }
+      }
     ) {
       edges {
         node {
@@ -142,7 +143,7 @@ export const indexPageQuery = graphql`
     editorPicks: allMarkdownRemark(
       limit: 3
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { eq: "editorPicks" } } }
+      filter: { frontmatter: { condition: { eq: "Editor picks" } } }
     ) {
       edges {
         node {
