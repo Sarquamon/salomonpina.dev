@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
 
 import Navbar from "./Navbar";
@@ -8,7 +8,7 @@ import "../snowy.css";
 import "../style.css";
 
 interface props {
-  children?: any;
+  children?: ReactNode;
 }
 
 export default function Layout({ children }: props) {

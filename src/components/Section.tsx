@@ -1,9 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface sectionProps {
   className?: string;
   title?: string;
-  children: any;
+  children: ReactNode;
 }
 
 export default function Section({
