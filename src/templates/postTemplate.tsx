@@ -14,11 +14,11 @@ export default function postTemplate({ data }: any) {
     <Layout>
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postNode={post} postPath={post.fields.slug} postSEO />
-      <header className="article-header medium">
+      <header className="postTitle">
         <h1>{post.frontmatter.title}</h1>
       </header>
       <section>
-        <article>
+        <article className="postContent">
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </section>
@@ -34,9 +34,6 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
-        date
-        tags
-        description
       }
     }
   }
