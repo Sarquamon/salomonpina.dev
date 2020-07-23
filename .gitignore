@@ -1,6 +1,7 @@
 # Core files
 content/
-src/style2.css
+src/reference.css
+src/test.css
 
 # Logs
 logs
