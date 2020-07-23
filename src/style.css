@@ -18,6 +18,10 @@
   --dark-theme-navbar-bg-color: rgb(46, 46, 46);
   --dark-theme-navbar-hover-color: rgb(20, 20, 20);
 
+  /* * Blockquote */
+  --blockquote-primary-bg-color: rgba(168, 218, 220, 1);
+  --blockquote-primary-boder-color: rgba(69, 123, 157, 1);
+
   font-size: 16px;
 }
 
@@ -231,6 +235,58 @@ footer .flex nav a {
   margin-right: 0.5rem;
   border-radius: 0.2rem;
   padding: 0.25rem;
+}
+
+/* * Post */
+
+header.postTitle {
+  padding: 1.5rem 0 0;
+}
+
+header.postTitle h1 {
+  font-size: 2rem;
+}
+
+article.postContent p {
+  font-size: 1.05rem;
+}
+
+/* * Blockquotes and lists */
+
+ol,
+ul,
+dl,
+table,
+blockquote {
+  font-size: 1.05rem;
+  margin: 0 0 1.5rem 0;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--dark-theme-navbar-bg-color);
+  border-radius: 0.3rem;
+  border: 2px solid var(--blockquote-primary-boder-color);
+  border-left: 10px solid var(--blockquote-primary-boder-color);
+  line-height: 1.5rem;
+  color: var(--dark-theme-font-color);
+}
+
+blockquote p {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+blockquote a {
+  padding: 1px 4px;
+  border-bottom: 2px solid var(--link-color);
+}
+
+blockquote a:hover {
+  border-radius: 0.4rem;
+  background: var(--link-color);
+  color: var(--dark-theme-font-color);
 }
 
 /* * Tags */
