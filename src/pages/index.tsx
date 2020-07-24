@@ -4,9 +4,11 @@ import { Helmet } from "react-helmet";
 
 import { optimizedPosts } from "../utils/handlers";
 
+import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import Section from "../components/Section";
 import PostList from "../components/PostList";
+
 import config from "../utils/config";
 
 export default function index({ data }: any) {
@@ -27,6 +29,7 @@ export default function index({ data }: any) {
   return (
     <Layout>
       <Helmet title={config.siteTitle} />
+      <SEO />
       <Section className="front-header">
         <h1>
           Hi! I'm <Link to="/about">Salomón Piña</Link>.

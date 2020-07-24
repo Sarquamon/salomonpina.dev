@@ -13,7 +13,7 @@ export default function postTemplate({ data }: any) {
   return (
     <Layout>
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
-      <SEO postNode={post} postPath={post.fields.slug} postSEO />
+      <SEO postNode={post} />
       <header className="postTitle">
         <h1>{post.frontmatter.title}</h1>
       </header>
@@ -25,6 +25,7 @@ export default function postTemplate({ data }: any) {
     </Layout>
   );
 }
+
 export const postQuery = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -34,6 +35,15 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
+        excerpt
+        description
+        image {
+          childImageSharp {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }
