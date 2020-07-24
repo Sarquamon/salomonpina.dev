@@ -45,10 +45,10 @@ export default function SEO({ postNode }: props) {
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      url: config.siteUrl,
-      name: title,
-      alternateName: config.siteTitle ? config.siteTitle : "",
-    },
+      "url": config.siteUrl,
+      "name": title,
+      "alternateName": config.siteTitle ? config.siteTitle : "Salomón Piña"
+    }
   ];
 
   if (postNode) {
@@ -56,27 +56,27 @@ export default function SEO({ postNode }: props) {
       {
         "@context": "http://schema.org",
         "@type": "BreadcrumbList",
-        itemListElement: [
+        "itemListElement": [
           {
             "@type": "ListItem",
-            position: 1,
-            item: {
+            "position": 1,
+            "item": {
               "@id": postURL,
-              name: title,
-              image,
-            },
-          },
-        ],
+              "name": title,
+              "image": {"@type": "ImageObject", "url": image} 
+            }
+          }
+        ]
       },
       {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        url: config.siteUrl,
-        name: title,
-        alternateName: config.siteTitle ? config.siteTitle : "",
-        headline: title,
-        image: { "@type": "ImageObject", url: image },
-        description,
+        "url": config.siteUrl,
+        "name": title,
+        "alternateName": config.siteTitle ? config.siteTitle : "",
+        "headline": title,
+        "image": { "@type": "ImageObject", "url": image },
+        "description": description
       }
     );
   }
