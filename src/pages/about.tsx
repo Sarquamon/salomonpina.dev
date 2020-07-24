@@ -1,9 +1,17 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
+import SEO from "../components/SEO";
+import Layout from "../components/Layout";
+
+import config from "../utils/config";
 
 export default function about() {
   return (
-    <div>
-      <h2>About me</h2>
-    </div>
+    <Layout>
+      <Helmet title={config.siteTitle} />
+      <SEO />
+      <h1>About Me</h1>
+    </Layout>
   );
 }
