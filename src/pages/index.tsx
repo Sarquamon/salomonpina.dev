@@ -90,7 +90,7 @@ export const indexPageQuery = graphql`
     latest: allMarkdownRemark(
       limit: 5
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { template: { in: ["post", "journey"] } } }
+      filter: { frontmatter: { template: { in: ["post"] } } }
     ) {
       edges {
         node {

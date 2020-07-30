@@ -16,11 +16,11 @@ interface props {
     | null;
 }
 
-export default function PostList(data: props) {
+export default function PostList({ posts }: props) {
   return (
     <div className="grid postListGrid">
-      {data.posts &&
-        data.posts.map(post => {
+      {posts &&
+        posts.map(post => {
           return (
             <Link className="postList-container" to={post.slug} key={post.id}>
               {post.image && (
@@ -37,13 +37,16 @@ export default function PostList(data: props) {
                   post.tags.map(tag => (
                     <Link
                       key={tag}
-                      to={`tags/${slugify(tag)}/`}
+                      to={`/tags/${slugify(tag)}/`}
                       className={`tag tag-${tag}`}
                     >
                       #{tag}
                     </Link>
                   ))}
-                <Link to={`/${post.category}/`} className="postListCat">
+                <Link
+                  to={`/${slugify(post.category[0])}/`}
+                  className="postListCat"
+                >
                   #{post.category}
                 </Link>
               </div>

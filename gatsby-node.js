@@ -18,7 +18,7 @@ const createPages = async ({ graphql, actions }) => {
 
   const postTemplate = path.resolve("./src/templates/postTemplate.tsx");
   // const pagePage = path.resolve("./src/templates/pageTemplate.js");
-  // const tagPage = path.resolve("./src/templates/tagTemplate.js");
+  const tagPage = path.resolve("./src/templates/tagTemplate.tsx");
 
   const result = await graphql(
     `
@@ -88,17 +88,17 @@ const createPages = async ({ graphql, actions }) => {
   //   });
   // });
 
-  // // Create tags page
-  // const tagList = Array.from(tagSet);
-  // tagList.forEach(tag => {
-  //   createPage({
-  //     path: `/tags/${slugify(tag)}/`,
-  //     component: tagPage,
-  //     context: {
-  //       tag,
-  //     },
-  //   });
-  // });
+  // Create tags page
+  const tagList = Array.from(tagSet);
+  tagList.forEach(tag => {
+    createPage({
+      path: `/tags/${slugify(tag)}/`,
+      component: tagPage,
+      context: {
+        tag,
+      },
+    });
+  });
 };
 
 //Creates a new node with past node + new fields ("/slug/").
