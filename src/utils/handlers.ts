@@ -6,7 +6,7 @@ export const optimizedPosts = <T>(posts: T[]) => {
       slug: post.node.fields.slug,
       tags: post.node.frontmatter.tags,
       title: post.node.frontmatter.title,
-      category: post.node.frontmatter.categories,
+      category: post.node.frontmatter.category,
       ...(post.node.frontmatter.image && {
         image: post.node.frontmatter.image.childImageSharp.fluid.src,
       }),
