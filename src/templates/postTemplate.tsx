@@ -35,7 +35,6 @@ export const postQuery = graphql`
       }
       frontmatter {
         title
-        excerpt
         description
         image {
           childImageSharp {
