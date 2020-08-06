@@ -17,7 +17,7 @@ const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve("./src/templates/postTemplate.tsx");
-  // const pagePage = path.resolve("./src/templates/pageTemplate.js");
+  // const journeyPage = path.resolve("./src/templates/journeyTemplate.tsx");
   const tagPage = path.resolve("./src/templates/tagTemplate.tsx");
 
   const result = await graphql(
@@ -30,7 +30,6 @@ const createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
-                template
               }
               fields {
                 slug
@@ -47,24 +46,19 @@ const createPages = async ({ graphql, actions }) => {
   }
 
   const postNodes = result.data.allMarkdownRemark.edges;
-  const posts = postNodes.filter(
-    post => post.node.frontmatter.template === "post"
-  );
-  // const pages = all.filter(post => post.node.frontmatter.template === "page");
+
   const tagSet = new Set();
 
-  // Create a page for each post.
-  posts.forEach((post, i) => {
-    const previous = i === posts.length - 1 ? null : posts[i + 1].node;
-    const next = i === 0 ? null : posts[i - 1].node;
+  // Creates a page for each post.
+  postNodes.forEach((post, i) => {
+    const previous = i === postNodes.length - 1 ? null : postNodes[i + 1].node;
+    const next = i === 0 ? null : postNodes[i - 1].node;
 
     if (post.node.frontmatter.tags) {
       post.node.frontmatter.tags.forEach(tag => {
         tagSet.add(tag);
       });
     }
-
-    console.log("");
 
     createPage({
       path: post.node.fields.slug,
@@ -77,7 +71,7 @@ const createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create pages page
+  // Creates journey files list within a category (Docker, JS, etc.) page
   // pages.forEach(page => {
   //   createPage({
   //     path: page.node.fields.slug,
@@ -88,7 +82,7 @@ const createPages = async ({ graphql, actions }) => {
   //   });
   // });
 
-  // Create tags page
+  // Creates tags page
   const tagList = Array.from(tagSet);
   tagList.forEach(tag => {
     createPage({
