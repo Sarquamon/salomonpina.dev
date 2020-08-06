@@ -1,9 +1,10 @@
 import React, { useMemo } from "react";
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
+import Section from "../components/Section";
 import PostList from "../components/PostList";
 
 import { optimizedPosts } from "../utils/handlers";
@@ -19,9 +20,9 @@ export default function tagTemplate({ data, pageContext }: any) {
 
   return (
     <Layout>
-      <Helmet title={``} />
+      <Helmet title={`${tag} tag | Salomón Piña`} />
       <SEO />
-      <section>
+      <Section>
         <h1>
           Every post and journey with{" "}
           <span className={`tag tag-${tag}`}>{tag}</span>
@@ -30,10 +31,10 @@ export default function tagTemplate({ data, pageContext }: any) {
           <span className="count">{totalCount}</span>
           {message}
         </p>
-      </section>
-      <section>
+      </Section>
+      <Section>
         <PostList posts={optimizedTags} />
-      </section>
+      </Section>
     </Layout>
   );
 }
@@ -52,7 +53,7 @@ export const tagsQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
-            categories
+            category
           }
         }
       }
