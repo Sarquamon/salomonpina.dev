@@ -44,7 +44,7 @@ export default function PostList({ posts }: props) {
                     </Link>
                   ))}
                 <Link
-                  to={`/${slugify(post.category[0])}/`}
+                  to={`/${slugify(post.category)}/`}
                   className="postListCat"
                 >
                   #{post.category}
