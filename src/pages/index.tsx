@@ -12,10 +12,9 @@ import PostList from "../components/PostList";
 import config from "../utils/config";
 
 export default function index({ data }: any) {
-  const optimizedLatest = useMemo(
-    () => optimizedPosts<{}[]>(data.latest.edges),
-    [data.latest.edges]
-  );
+  const optimizedLatest = useMemo(() => optimizedPosts(data.latest.edges), [
+    data.latest.edges,
+  ]);
 
   const optimizedPopular = useMemo(() => optimizedPosts(data.popular.edges), [
     data.popular.edges,
@@ -90,7 +89,6 @@ export const indexPageQuery = graphql`
     latest: allMarkdownRemark(
       limit: 5
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { template: { in: ["post"] } } }
     ) {
       edges {
         node {
@@ -102,7 +100,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
-            categories
+            category
             image {
               childImageSharp {
                 fluid {
@@ -117,9 +115,7 @@ export const indexPageQuery = graphql`
     popular: allMarkdownRemark(
       limit: 20
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { condition: { in: ["Popular", "Editor picks"] } }
-      }
+      filter: { frontmatter: { condition: { eq: "Popular" } } }
     ) {
       edges {
         node {
@@ -131,7 +127,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
-            categories
+            category
             image {
               childImageSharp {
                 fluid {
@@ -158,7 +154,7 @@ export const indexPageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
-            categories
+            category
             image {
               childImageSharp {
                 fluid {
