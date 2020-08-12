@@ -302,20 +302,20 @@ blockquote a:hover {
   background: rgba(51, 51, 51, 1);
 }
 
-.tag.tag-Docker {
+.tag.tag-docker {
   background: rgba(81, 131, 245, 0.8);
 }
 
-.tag.tag-Docker:hover {
+.tag.tag-docker:hover {
   background: rgba(81, 131, 245, 1);
 }
 
-.tag.tag-Javascript {
+.tag.tag-javascript {
   color: var(--dark-theme-bg);
   background: rgba(255, 224, 102, 0.8);
 }
 
-.tag.tag-Javascript:hover {
+.tag.tag-javascript:hover {
   color: var(--dark-theme-bg);
   background: rgba(255, 224, 102, 1);
 }
