@@ -17,7 +17,7 @@ const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const postTemplate = path.resolve("./src/templates/postTemplate.tsx");
-  // const journeyPage = path.resolve("./src/templates/journeyTemplate.tsx");
+  const journeyPage = path.resolve("./src/templates/journeyTemplate.tsx");
   const tagPage = path.resolve("./src/templates/tagTemplate.tsx");
 
   const result = await graphql(
@@ -48,6 +48,7 @@ const createPages = async ({ graphql, actions }) => {
   const postNodes = result.data.allMarkdownRemark.edges;
 
   const tagSet = new Set();
+  const categories = new Set();
 
   // Creates a page for each post.
   postNodes.forEach((post, i) => {
@@ -55,6 +56,8 @@ const createPages = async ({ graphql, actions }) => {
     const next = i === 0 ? null : postNodes[i - 1].node;
 
     if (post.node.frontmatter.tags) {
+      categories.add(post.node.frontmatter.tags[0]);
+
       post.node.frontmatter.tags.forEach(tag => {
         tagSet.add(tag);
       });
@@ -72,15 +75,15 @@ const createPages = async ({ graphql, actions }) => {
   });
 
   // Creates journey files list within a category (Docker, JS, etc.) page
-  // pages.forEach(page => {
-  //   createPage({
-  //     path: page.node.fields.slug,
-  //     component: pagePage,
-  //     context: {
-  //       slug: page.node.fields.slug,
-  //     },
-  //   });
-  // });
+  categories.forEach(category => {
+    createPage({
+      path: `/journeys/${slugify(category)}`,
+      component: journeyPage,
+      context: {
+        category,
+      },
+    });
+  });
 
   // Creates tags page
   const tagList = Array.from(tagSet);
