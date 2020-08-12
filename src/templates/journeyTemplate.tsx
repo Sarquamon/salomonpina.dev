@@ -34,7 +34,6 @@ export default function pageTemplate({ data, pageContext }: any) {
       </Section>
       <Section>
         <PostList posts={optimizedJourneys} />
-        {JSON.stringify(data, null, 2)}
       </Section>
     </Layout>
   );
