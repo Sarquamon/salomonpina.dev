@@ -1,3 +1,17 @@
+export const optimizedJourneysCategories = (posts: { node: any }[]) => {
+  if (posts.length > 0) {
+    const categories = new Set();
+
+    posts.map(post => {
+      categories.add(post.node.frontmatter.tags[0]);
+    });
+
+    return Array.from(categories);
+  } else {
+    return null;
+  }
+};
+
 export const optimizedPosts = <T>(posts: T[]) => {
   if (posts.length > 0) {
     return posts.map(post => ({
