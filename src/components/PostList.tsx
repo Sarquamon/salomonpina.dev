@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+
 import { slugify } from "../utils/handlers";
 
 interface props {
@@ -40,14 +41,14 @@ export default function PostList({ posts }: props) {
                       to={`/tags/${slugify(tag)}/`}
                       className={`tag tag-${tag}`}
                     >
-                      #{tag}
+                      #{tag[0].toUpperCase() + tag.slice(1)}
                     </Link>
                   ))}
                 <Link
                   to={`/${slugify(post.category)}/`}
                   className="postListCat"
                 >
-                  #{post.category}
+                  #{post.category[0].toUpperCase() + post.category.slice(1)}
                 </Link>
               </div>
             </Link>
