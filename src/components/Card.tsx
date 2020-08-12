@@ -1,33 +1,19 @@
 import React from "react";
+import { Link } from "gatsby";
+
+import { slugify } from "../utils/handlers";
 
 interface cardProps {
-  cardTitle: string;
-  cardDesc: string;
-  cardImage: string;
-  journeysCount: number;
+  category: any;
 }
 
-export default function Card({
-  cardTitle,
-  cardDesc,
-  cardImage,
-  journeysCount,
-}: cardProps) {
+export default function Card({ category }: cardProps) {
   return (
-    <div className="card">
-      <img src={cardImage} alt={cardTitle} className="card-image" />
-      <h3 className="card-title">{cardTitle}</h3>
-      <div className="card-content">
-        <p>{cardDesc}</p>
-      </div>
-      <div className="card-info">
-        <div>{journeysCount}</div>
-        <div>
-          <a href="#" className="card-link">
-            Go to {cardTitle} journeys
-          </a>
-        </div>
-      </div>
-    </div>
+    <Link to={`/journeys/${slugify(category)}`} className="card">
+      <div className={`${category}-card`} />
+      <h3 className="card-title">
+        {category[0].toUpperCase() + category.slice(1)}
+      </h3>
+    </Link>
   );
 }
