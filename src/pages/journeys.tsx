@@ -31,11 +31,7 @@ export default function Journeys({ data }: any) {
 export const journeysQuery = graphql`
   query journeysComponentQuery {
     allMarkdownRemark(
-      filter: {
-        frontmatter: {
-          category: { in: ["Journeys", "journey", "journeys", "Journey"] }
-        }
-      }
+      filter: { frontmatter: { category: { eq: "journeys" } } }
     ) {
       totalCount
       edges {
