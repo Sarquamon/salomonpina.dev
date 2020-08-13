@@ -40,22 +40,27 @@ export default function pageTemplate({ data, pageContext }: any) {
 }
 
 export const journeysQuery = graphql`
-query ListJourneysQuery($category: String) {
-  allMarkdownRemark(filter: {frontmatter: {tags: {in: [$category]}, category: {regex: "/[A-z][ourney]\\w+/g"}}}) {
-    edges {
-      node {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          description
-          tags
-          category
-          image {
-            childImageSharp {
-              fluid {
-                src
+  query ListJourneysQuery($category: String) {
+    allMarkdownRemark(
+      filter: {
+        frontmatter: { tags: { in: [$category] }, category: { eq: "journeys" } }
+      }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            description
+            tags
+            category
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
               }
             }
           }
@@ -63,5 +68,4 @@ query ListJourneysQuery($category: String) {
       }
     }
   }
-}
 `;
