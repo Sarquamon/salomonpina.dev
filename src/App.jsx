@@ -7,26 +7,28 @@ import { About } from "./pages/about/About";
 import { TutorialsHome } from "./pages/tutorial/TutorialsHome";
 import { Sitemap } from "./pages/sitemap/Sitemap";
 
+import "./app.css";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navbar />,
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <Layout children={<Home />} />,
+        element: <Home />,
       },
       {
-        path: "/about",
-        element: <Layout children={<About />} />,
+        path: "about",
+        element: <About />,
       },
       {
-        path: "/tutorials",
-        element: <Layout children={<TutorialsHome />} />,
+        path: "tutorials",
+        element: <TutorialsHome />,
       },
       {
-        path: "/sitemap",
-        element: <Layout children={<Sitemap />} />,
+        path: "sitemap",
+        element: <Sitemap />,
       },
     ],
   },

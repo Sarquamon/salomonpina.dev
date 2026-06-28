@@ -1,10 +1,19 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+import { Navbar } from "../navbar/Navbar";
+import { Footer } from "../footer/Footer";
 
-export const Layout = ({ children }) => {
+import "./layout.css";
+
+export const Layout = () => {
   return (
-    <div>
-      <h1>Hello from Layout!</h1>
-      {children}
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <h1>Hello from Layout!</h1>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
   );
 };
