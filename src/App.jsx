@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navbar } from "./components/navbar/Navbar";
+import { Layout } from "./components/layout/Layout";
 import { Home } from "./pages/home/Home";
 import { About } from "./pages/about/About";
 import { TutorialsHome } from "./pages/tutorial/TutorialsHome";
@@ -13,19 +14,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Layout children={<Home />} />,
       },
       {
         path: "/about",
-        element: <About />,
+        element: <Layout children={<About />} />,
       },
       {
         path: "/tutorials",
-        element: <TutorialsHome />,
+        element: <Layout children={<TutorialsHome />} />,
       },
       {
         path: "/sitemap",
-        element: <Sitemap />,
+        element: <Layout children={<Sitemap />} />,
       },
     ],
   },
