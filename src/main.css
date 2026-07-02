@@ -1,8 +1,33 @@
+:root {
+  /* Custom variables */
+
+  /* Background colors */
+  --main-navbar-bg-color: green;
+
+  /* content spacing */
+  --default-content-spacing: 0 4vw;
+
+  /* debugging boxes */
+  --debugging-boxes-border-style: solid;
+  --debugging-boxes-border-color: black;
+  --debugging-boxes-border-width: 1px;
+}
+
+/* debugging boxes */
+.debug_boxes {
+  border-style: var(--debugging-boxes-border-style);
+  border-color: var(--debugging-boxes-border-color);
+  border-width: var(--debugging-boxes-border-width);
+}
+
+/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: inherit;

@@ -7,13 +7,12 @@ import "./layout.css";
 
 export const Layout = () => {
   return (
-    <>
+    <div className="layout_shell">
       <Navbar />
-      <main>
-        <h1>Hello from Layout!</h1>
+      <main className="layout_container">
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };

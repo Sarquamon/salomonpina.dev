@@ -1,3 +1,34 @@
-.testing {
-  color: blue;
+.navbar_header {
+  width: 100%;
+  background-color: var(--main-navbar-bg-color);
+}
+
+.navbar_content {
+  margin: var(--default-content-spacing);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.navbar_list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.navbar_nav {
+  justify-self: end;
+}
+
+.navbar_item a {
+  background-color: red;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.navbar_item a:hover {
+  background-color: blue;
 }

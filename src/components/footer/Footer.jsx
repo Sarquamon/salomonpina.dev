@@ -1,15 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./footer.css";
 
 export const Footer = () => {
   return (
-    <footer>
-      <h1>Hello from footer</h1>
-      <ul>
-        <li>Sitemap</li>
-      </ul>
-      Copyright Salom&oacute;n Pi&ntilde;a - 2026
+    <footer className="footer_footer">
+      <nav className="footer_content">
+        <ul className="navbar_list">
+          <li className={"navbar_item"}>
+            <NavLink to={"/"}>Home</NavLink>
+          </li>
+          <li className={"navbar_item"}>
+            <NavLink to={"/about"}>About</NavLink>
+          </li>
+          <li className={"navbar_item"}>
+            <NavLink to={"/tutorials"}>Tutorials</NavLink>
+          </li>
+          <li className={"navbar_item"}>
+            <NavLink to={"/sitemap"}>Sitemap</NavLink>
+          </li>
+        </ul>
+      </nav>
     </footer>
   );
 };
