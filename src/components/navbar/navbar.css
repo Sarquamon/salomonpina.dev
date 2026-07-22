@@ -1,6 +1,7 @@
 .navbar_header {
   width: 100%;
   background-color: var(--main-navbar-bg-color);
+  color: var(--main-navbar-link-color);
 }
 
 .navbar_content {
@@ -23,12 +24,12 @@
 }
 
 .navbar_item a {
-  background-color: red;
+  color: var(--main-navbar-link-color);
   display: block;
   padding: 0.5rem 0.75rem;
   transition: all 0.2s ease;
 }
 
 .navbar_item a:hover {
-  background-color: blue;
+  color: var(--main-navbar-link-color-hover);
 }
